@@ -70,6 +70,7 @@ dataset_val.prepare()
 class InferenceConfig(ShapesConfig):
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
+    DETECTION_MIN_CONFIDENCE = 0.9
 
 inference_config = InferenceConfig()
 
@@ -100,6 +101,8 @@ log("gt_class_id", gt_class_id)
 log("gt_bbox", gt_bbox)
 log("gt_mask", gt_mask)
 
+import pdb
+pdb.set_trace()
 visualize.display_instances(original_image, gt_bbox, gt_mask, gt_class_id, 
                             dataset_train.class_names, figsize=(8, 8))
 
