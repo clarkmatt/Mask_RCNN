@@ -114,7 +114,7 @@ elif init_with == "last":
 # which layers to train by name pattern.
 model.train(dataset_train, dataset_val, 
             learning_rate=config.LEARNING_RATE, 
-            epochs=3, 
+            epochs=5, 
             layers='heads')
 
 
@@ -123,9 +123,9 @@ model.train(dataset_train, dataset_val,
 # pass a regular expression to select which layers to
 # train by name pattern.
 #model.train(dataset_train, dataset_val, 
-            learning_rate=config.LEARNING_RATE / 10,
-            epochs=2, 
-            layers="all")
+#            learning_rate=config.LEARNING_RATE / 10,
+#            epochs=2, 
+#            layers="all")
 
 # Save weights
 # Typically not needed because callbacks save after every epoch

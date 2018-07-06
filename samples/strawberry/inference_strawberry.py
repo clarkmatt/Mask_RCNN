@@ -81,7 +81,7 @@ model = modellib.MaskRCNN(mode="inference",
 
 # Get path to saved weights
 # Either set a specific path or find last trained weights
-model_path = os.path.join(MODEL_DIR, "strawberry20180701T1326/mask_rcnn_strawberry_0002.h5")
+model_path = os.path.join(MODEL_DIR, "strawberry20180705T1655/mask_rcnn_strawberry_0005.h5")
 #model_path = model.find_last()
 
 # Load trained weights
@@ -103,14 +103,16 @@ log("gt_mask", gt_mask)
 
 import pdb
 pdb.set_trace()
-visualize.display_instances(original_image, gt_bbox, gt_mask, gt_class_id, 
-                            dataset_train.class_names, figsize=(8, 8))
+#visualize.display_instances(original_image, gt_bbox, gt_mask, gt_class_id, 
+#                            dataset_train.class_names, figsize=(8, 8))
 
 results = model.detect([original_image], verbose=1)
 
 r = results[0]
+#visualize.display_instances(original_image, r['rois'], r['masks'], r['class_ids'], 
+#                            dataset_val.class_names, r['scores'], ax=get_ax())
 visualize.display_instances(original_image, r['rois'], r['masks'], r['class_ids'], 
-                            dataset_val.class_names, r['scores'], ax=get_ax())
+                            dataset_val.class_names, r['scores'])
 
 
 # ## Evaluation
